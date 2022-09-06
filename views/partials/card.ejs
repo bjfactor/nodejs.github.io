@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap gap-2 mt-5">
+  <%for(var items of data){%>
+    <div class="card-deck ms-1">
+      <div class="card mx-2 mt-3">
+        <img class="card-img-top" src="<%= items.img%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= items.name%></h5>
+          <p class="card-text">ID: <%= items.id%></p>
+        </div>
+        <div class="card-footer flex-wrap">
+          <a href=<%="gallery/" +items.id%> class="btn btn-primary px-5">View</a>
+          <a href=<%="gallery/edit/" +items.id%> class="btn btn-secondary px-5">Edit</a>
+        </div>
+      </div>
+    </div>
+  <%}%> 
+</div>
