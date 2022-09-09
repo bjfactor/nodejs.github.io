@@ -48,15 +48,15 @@ router.get('/gallery/edit/:id', (req,res)=>{
 })
 
 router.put('/gallery/edit/:id', (req,res)=>{
-    let id = +req.params.id;
-    // console.log(id);
+    let id = req.params.id;
+    console.log(id);
     let body = req.body;
-    // console.log(body);
+    console.log(body);
     let index = data.findIndex((df)=>parseInt(df.id) === parseInt(id));
     if (index >= 0) {
-        // console.log(`this is index ${index}`);
+        console.log(`this is index ${index}`);
         let updateData = {id:id, ...body};
-        // console.log(`this is variable updateData ${updateData}`)
+        console.log(`this is variable updateData ${updateData}`)
         data[index] = updateData;
         console.log(updateData);
         res.redirect('/record/gallery');
@@ -76,9 +76,11 @@ router.post('/', (req,res)=>{
 
 router.delete('/gallery/edit/:id', (req,res)=>{
     let id = +req.params.id;
+    console.log(id);
     let index = data.findIndex((df)=>parseInt(df.id) === parseInt(id));
-
+    console.log(index)
     if(index >= 0) {
+        console.log(index)
         data.splice(index, 1);
         res.status(200).redirect('/record/gallery');
     } else {
